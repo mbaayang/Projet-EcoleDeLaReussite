@@ -1,9 +1,5 @@
-<?php
- include ('connect.php'); // On inclu la connexion à la bdd
-?>
-
 <!DOCTYPE html>
-    <html lang="fr">
+    <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,37 +70,25 @@
                 ?>
             
             <form action="traitement_ins_employes.php" method="post">
-                <h2 class="text-center">Inscirtion des élèves</h2>   
+                <h2 class="text-center">Créer un compte</h2>   
                 <div class="form-group">
-                    <label for="statut">Prenom</label>
-                    <input type="text" name="prenom" class="form-control" placeholder="Prenom" required="required" autocomplete="off">
+                    <label for="statut">Statut</label>
+                    <input type="text" name="statut" class="form-control" placeholder="Statut" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="statut">Nom</label>
-                    <input type="text" name="nom" class="form-control" placeholder="Nom" required="required" autocomplete="off">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="date_de_naissance">Date de naissance</label>
-                    <input type="date" name="date_de_naissance" class="form-control" placeholder="Date de naissance" required="required" autocomplete="off">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="lieu_de_naissance">Lieu de naissance</label>
-                    <input type="text" name="lieu_de_naissane" class="form-control" placeholder="Lieu de naissance" required="required" autocomplete="off">
+                    <label for="password_retype">Saisissez à nouveau le mot de passe</label>
+                    <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="adresse">Adresse</label>
-                    <input type="text" name="adresse" class="form-control" placeholder="Adresse" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="tel">Téléphone</label>
-                    <input type="tel" name="tel" class="form-control" placeholder="Téléphone" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label for="niveau">Niveau</label>
-                    <input type="text" name="niveau" class="form-control" placeholder="Niveau" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Inscrire</button>
+                    <button type="submit" class="btn btn-primary btn-block">Inscription</button>
                 </div>   
             </form>
         </div>
