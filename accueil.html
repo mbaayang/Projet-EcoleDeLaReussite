@@ -7,26 +7,39 @@
     <title>Ecole de la Reussite</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="la_reussite.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
 </head>
 <body style="background-color:  #2C22B8;">
     <header>
-        <nav>
-            <img src="images/logo.png" class="img-logo" alt="logo">
-            <ul>
-                <li> <a href="accueil.html"> ACCUEIL </a></li>
-                <li> <a href="connexion.php"> CONNEXION</a>
-                <li> <a href="#"> ADMISSION </a>
-                    <div class="sousmenu">
-                        <ul>
-                            <li> <a href="admission_primaire.php"> PRIMAIRE</a></li>
-                            <li> <a href="admission_secondaire.php"> SECONDAIRE</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class=""> <a href=""> DEMANDE D'EMPLOI </a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <img src="images/logo.png" class="img-logo" alt="logo">
+                <div class="space-between navbar-space-between" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="accueil.html"><i class="fa-solid fa-house"></i> ACCUEIL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="connexion.php"><i class="fa-solid fa-user"></i> CONNEXION</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="fa-solid fa-book"></i>
+                                ADMISSION
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="admission_primaire.php">PRIMAIRE</a></li>
+                                <li><a class="dropdown-item" href="admission_secondaire.php">SECONDAIRE</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
+
     <main>
         <div class="container">    
                 <div class="bloc">
