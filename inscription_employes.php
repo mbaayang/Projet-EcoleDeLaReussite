@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-    <html lang="en">
+    <html lang="fr">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="author" content="NoS1gnal"/>
-
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
             <link rel="stylesheet" href="la_reussite.css">
             <title>Inscription</title>
         </head>
         <body>
+        <?php
+        include('header.php');
+        ?>
         <div class="login-form">
             <?php 
                 if(isset($_GET['reg_err']))
@@ -51,13 +52,12 @@
                         <?php 
                         break;
 
-                        case 'statut_length':
+                        case 'pseudo_length':
                         ?>
                             <div class="alert alert-danger">
-                                <strong>Erreur</strong> statut trop long
+                                <strong>Erreur</strong> pseudo trop long
                             </div>
                         <?php 
-                        break;
                         case 'already':
                         ?>
                             <div class="alert alert-danger">
@@ -70,13 +70,13 @@
                 ?>
             
             <form action="traitement_ins_employes.php" method="post">
-                <h2 class="text-center">Créer un compte</h2>   
+                <h2 class="text-center">Créer un compte</h2>       
                 <div class="form-group">
-                    <label for="statut">Statut</label>
-                    <input type="text" name="statut" class="form-control" placeholder="Statut" required="required" autocomplete="off">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" name="pseudo" class="form-control" placeholder="Pseudo" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="email">Adresse Email</label>
+                    <label for="email">Adresse mail</label>
                     <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
@@ -92,5 +92,8 @@
                 </div>   
             </form>
         </div>
-    </body>
+        <?
+        include('footer.php');
+        ?>
+        </body>
 </html>

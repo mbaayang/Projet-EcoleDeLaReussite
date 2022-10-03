@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="la_reussite.css">
     <title>Connexion</title>
 </head>
 <body>
+    <?php
+    include('header.php')
+    ?>
     <div class="login-form">
         <?php 
             if(isset($_GET['login_err']))
@@ -60,5 +62,8 @@
         <p class="text-center"><a href="inscription_employes.php">S'inscrire ?</a></p>
     </div>
         
+    <?php
+    include('footer.php')
+    ?>
 </body>
 </html>

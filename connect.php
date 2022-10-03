@@ -1,17 +1,14 @@
 <?php
 // Se connecter à la base de données
 
-$serveur = "localhost";
-$login = "root";
-$pass = "";
-
-try{
-    $bdd = new PDO("mysql:host=$serveur;dbname=ecole_de_la_reussite;charset=utf8", $login, $pass);
-
+try 
+{
+    $bdd = new PDO("mysql:host=localhost;dbname=ecole_de_la_reussite;charset=utf8", "root", "mbayang07");
 }
-catch(PDOException $e){
-    die('Erreur'.$e->getMessage());
-    
+catch(PDOException $e)
+{
+    die('Erreur : '.$e->getMessage());
 }
+
 
 ?>
