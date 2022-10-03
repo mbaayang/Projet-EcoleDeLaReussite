@@ -18,62 +18,6 @@
         </head>
         <body>
         <div class="login-form">
-            <?php 
-                if(isset($_GET['reg_err']))
-                {
-                    $err = htmlspecialchars($_GET['reg_err']);
-
-                    switch($err)
-                    {
-                        case 'success':
-                        ?>
-                            <div class="alert alert-success">
-                                <strong>Succès</strong> inscription réussie !
-                            </div>
-                        <?php
-                        break;
-
-                        case 'password':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> mot de passe différent
-                            </div>
-                        <?php
-                        break;
-
-                        case 'email':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> email non valide
-                            </div>
-                        <?php
-                        break;
-
-                        case 'email_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> email trop long
-                            </div>
-                        <?php 
-                        break;
-
-                        case 'statut_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> statut trop long
-                            </div>
-                        <?php 
-                        break;
-                        case 'already':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> compte deja existant
-                            </div>
-                        <?php 
-
-                    }
-                }
-                ?>
             
             <form action="traitement_ins_employes.php" method="post">
                 <h2 class="text-center">Inscription des élèves</h2>   
