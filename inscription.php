@@ -36,8 +36,10 @@
         $lieu_de_naissance=$_POST['lieu_de_naissance'];
         $niveau=$_POST['niveau'];
         
+        
         $sqlAjoutPersonne=("INSERT INTO Personne(nom,prenom,tel,adresse,date_de_naissance,lieu_de_naissance) VALUES (:nom,:prenom,:tel,:adresse,:date_de_naissance,:lieu_de_naissance)");
-        $sqlAjoutEleve=("INSERT INTO Eleve(niveau) VALUES (:niveau)");
+        // mysql_query("INSERT INTO Eleve(niveau,pid) VALUES ('".$_POST['niveau']."','".mysql_insert_id() ."')") //renvoiyer les resultat du mysql au serveur web (mysql_query)
+        $sqlAjoutEleve=("INSERT INTO Eleve(niveau,pid) VALUES (:niveau,mysql_insert_id())");
 //Préparation de la requête     
         $stmtAjoutPersonne=$conn->prepare($sqlAjoutPersonne);
         $stmtAjoutEleve=$conn->prepare($sqlAjoutEleve);
@@ -50,13 +52,21 @@
         $stmtAjoutPersonne->bindParam(':lieu_de_naissance',$lieu_de_naissance);
         $stmtAjoutPersonne->execute();
 
-        // $stmtAjoutEleve->bindParam(':niveau',$niveau);
-        // $stmtAjoutEleve->execute();
+        $stmtAjoutEleve->bindParam(':niveau',$niveau);
+        $stmtAjoutEleve->execute();
+
+        // $pid=$conn->insert_id;  recupération dernier id enrégistré pour la connexion ave l'objet mysqli
+        // $pid=$conn->lastInsertId();
+        // $sqlAjoutIdEleve=(" INSERT INTO Eleve(pid) VALUES($pid)");
+        // $stmtAjoutIdEleve=$conn->prepare($sqlAjoutIdEleve);
+        // $stmtAjoutIdEleve->execute();
+
         // $sqlRecuperationIDP=("SELECT id FROM Personne ");
+
         // $stmtRecuperationIDP=$conn->prepare($sqlRecuperationIDP);
         // $stmtRecuperationIDP->execute();
-        // echo"$sqlRecuperationIDP";
-
+        // $idp=$stmtRecuperationIDP->fetchAll();
+        
 
     }
 ?>
