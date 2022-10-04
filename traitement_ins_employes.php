@@ -33,7 +33,7 @@
                             $ip = $_SERVER['REMOTE_ADDR']; 
                             
                             // On insère dans la base de données
-                            $insert = $bdd->prepare('INSERT INTO Employes(pseudo, email, password, ip, token) VALUES(:pseudo, :email, :password, :ip, :token)');
+                            $insert = $bdd->prepare('INSERT INTO employes(pseudo, email, password, ip, token) VALUES(:pseudo, :email, :password, :ip, :token)');
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
