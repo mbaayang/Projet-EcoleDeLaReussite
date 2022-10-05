@@ -1,28 +1,36 @@
 <?php
- include ('connect.php'); // On inclu la connexion à la bdd
+    require_once 'connect.php'; // On inclu la connexion à la bdd
 
-   // Vérifier si le formulaire est soumis 
-   if ( isset( $_POST['submit'] ) ) {
-    /* récupérer les données du formulaire en utilisant 
-       la valeur des attributs name comme clé 
-      */
-   
-    $prenom = $_POST['prenom']; 
-    $nom = $_POST['nom']; 
-    $naissance=$_POST['naissance'];
-    $lieu=$_POST['lieu'];
-    $adresse=$_POST['adresse'];
-    $niveau=$_POST['niveau'];
-  /*   $pseudo=$_POST['pseudo']; */
-/*     $email=$_POST['email']; */
-  /*   $mot_de_passe=$_POST['mot_de_passe']; */
- /*    $statut=$_POST['statut']; */
+//Traitement de formulaire
+if (isset($_POST["submit"])) {
     
-require_once'connect.php';
-$var=$bdd->query("INSERT INTO employes(prenom,nom, date_de_naissance, lieu_de_naissance, adresse, tel,,email,,statut) VALUES ('".$prenom."','".$nom."','".$naissance."','".$lieu."','".$adresse."','".$tel."','".$email."','".$statut."')");
+        //On recupére les données en les protégeants
+        $prenom = htmlspecialchars($_POST["prenom"]);
+        $nom = htmlspecialchars($_POST["nom"]);
+        $date_de_naissance = htmlspecialchars($_POST["date_de_naissance"]);
+        $lieu_de_naissance = htmlspecialchars($_POST["lieu_de_naissance"]);
+        $adresse = htmlspecialchars($_POST["adresse"]);
+        $niveau = htmlspecialchars($_POST["niveau"]);
 
- }
-?>
+        //On écrit la requete
+        $sql = 'INSERT INTO eleves (prenom, nom, date_de_naissance, lieu_de_naissance, adresse, niveau)
+        VALUES (:prenom, :nom, :date_de_naissance, :lieu_de_naissance, :adresse, :niveau)';
+
+        //On prepare la requete
+        $query = $bdd->prepare($sql);
+
+        //On injecte les valeurs
+        $query->bindParam(':prenom', $prenom);
+        $query->bindParam(':nom', $nom);
+        $query->bindParam(':date_de_naissance', $date_de_naissance);
+        $query->bindParam(':lieu_de_naissance', $lieu_de_naissance);
+        $query->bindParam(':adresse', $adresse);
+        $query->bindParam(':niveau', $niveau);
+
+        //On execute la requete
+        $query->execute();
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,16 +48,15 @@ $var=$bdd->query("INSERT INTO employes(prenom,nom, date_de_naissance, lieu_de_na
             <title>Inscription</title>
         </head>
         <body>
-        <div class="login-form">
-            
-            <form action="traitement_ins_employes.php" method="post">
+        <div class="login-form">            
+            <form action="" method="post">
                 <h2 class="text-center">Inscription des élèves</h2>   
                 <div class="form-group">
-                    <label for="statut">Prenom</label>
+                    <label for="prenom">Prenom</label>
                     <input type="text" name="prenom" class="form-control" placeholder="Prenom" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="statut">Nom</label>
+                    <label for="nom">Nom</label>
                     <input type="text" name="nom" class="form-control" placeholder="Nom" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
@@ -58,22 +65,18 @@ $var=$bdd->query("INSERT INTO employes(prenom,nom, date_de_naissance, lieu_de_na
                 </div>
                 <div class="form-group">
                     <label for="lieu_de_naissance">Lieu de naissance</label>
-                    <input type="text" name="lieu_de_naissane" class="form-control" placeholder="Lieu de naissance" required="required" autocomplete="off">
+                    <input type="text" name="lieu_de_naissance" class="form-control" placeholder="Lieu de naissance" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="adresse">Adresse</label>
                     <input type="text" name="adresse" class="form-control" placeholder="Adresse" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="tel">Téléphone</label>
-                    <input type="tel" name="tel" class="form-control" placeholder="Téléphone" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
                     <label for="niveau">Niveau</label>
                     <input type="text" name="niveau" class="form-control" placeholder="Niveau" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Inscrire</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">Inscrire</button>
                 </div>   
             </form>
         </div>

@@ -27,8 +27,6 @@
 <th>lieu_de_naissance</th>
 <th>adresse</th>
 <th>niveau</th>
-<th>date_inscription</th>
-<th>date suppression</th>
 <th>Action</th>
 <?php
 require_once 'connect.php';
@@ -45,9 +43,7 @@ while($aff=$req->fetch()){
 <td>  <?php echo $aff['date_de_naissance']; ?></td>
 <td>  <?php echo $aff['lieu_de_naissance']; ?></td>
 <td>  <?php echo $aff['adresse']; ?></td>
-<td>  <?php echo $aff['tel']; ?></td>
-<td>  <?php echo $aff['email']; ?></td>
-<td>  <?php echo $aff['statut']; ?></td>
+<td>  <?php echo $aff['niveau']; ?></td>
 <td>
     <a href="modifier.php?id=<?php echo $aff['id'] ?> ">Modifier</a>
     <a href="supprimer.php?id=<?php echo $aff['id'] ?>">supprimer</a>
