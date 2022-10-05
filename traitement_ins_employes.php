@@ -11,7 +11,7 @@
         $password_retype = htmlspecialchars($_POST['password_retype']);
 
         // On vérifie si l'utilisateur existe
-        $check = $bdd->prepare('SELECT pseudo, email, password FROM Employes WHERE email = ?');
+        $check = $bdd->prepare('SELECT pseudo, email, password FROM infos_connexion WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
@@ -33,7 +33,7 @@
                             $ip = $_SERVER['REMOTE_ADDR']; 
                             
                             // On insère dans la base de données
-                            $insert = $bdd->prepare('INSERT INTO Employes(pseudo, email, password, ip, token) VALUES(:pseudo, :email, :password, :ip, :token)');
+                            $insert = $bdd->prepare('INSERT INTO infos_connexion(pseudo, email, password, ip, token) VALUES(:pseudo, :email, :password, :ip, :token)');
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,

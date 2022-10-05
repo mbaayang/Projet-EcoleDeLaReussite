@@ -1,5 +1,5 @@
 <?php
- include ('connect.php'); // On inclu la connexion à la bdd
+
 ?>
 
 <!DOCTYPE html>
@@ -17,72 +17,15 @@
             <title>Inscription</title>
         </head>
         <body>
-        <div class="login-form">
-            <?php 
-                if(isset($_GET['reg_err']))
-                {
-                    $err = htmlspecialchars($_GET['reg_err']);
-
-                    switch($err)
-                    {
-                        case 'success':
-                        ?>
-                            <div class="alert alert-success">
-                                <strong>Succès</strong> inscription réussie !
-                            </div>
-                        <?php
-                        break;
-
-                        case 'password':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> mot de passe différent
-                            </div>
-                        <?php
-                        break;
-
-                        case 'email':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> email non valide
-                            </div>
-                        <?php
-                        break;
-
-                        case 'email_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> email trop long
-                            </div>
-                        <?php 
-                        break;
-
-                        case 'statut_length':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> statut trop long
-                            </div>
-                        <?php 
-                        break;
-                        case 'already':
-                        ?>
-                            <div class="alert alert-danger">
-                                <strong>Erreur</strong> compte deja existant
-                            </div>
-                        <?php 
-
-                    }
-                }
-                ?>
-            
-            <form action="traitement_ins_employes.php" method="post">
+        <div class="login-form">            
+            <form action="" method="post">
                 <h2 class="text-center">Inscription des élèves</h2>   
                 <div class="form-group">
-                    <label for="statut">Prenom</label>
+                    <label for="prenom">Prenom</label>
                     <input type="text" name="prenom" class="form-control" placeholder="Prenom" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="statut">Nom</label>
+                    <label for="nom">Nom</label>
                     <input type="text" name="nom" class="form-control" placeholder="Nom" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
@@ -98,15 +41,11 @@
                     <input type="text" name="adresse" class="form-control" placeholder="Adresse" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="tel">Téléphone</label>
-                    <input type="tel" name="tel" class="form-control" placeholder="Téléphone" required="required" autocomplete="off">
-                </div>
-                <div class="form-group">
                     <label for="niveau">Niveau</label>
                     <input type="text" name="niveau" class="form-control" placeholder="Niveau" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">Inscrire</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">Inscrire</button>
                 </div>   
             </form>
         </div>
