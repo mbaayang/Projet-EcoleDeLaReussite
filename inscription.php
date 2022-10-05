@@ -1,4 +1,35 @@
 <?php
+    require_once 'connect.php'; // On inclu la connexion à la bdd
+
+//Traitement de formulaire
+if (isset($_POST["submit"])) {
+    
+        //On recupére les données en les protégeants
+        $prenom = htmlspecialchars($_POST["prenom"]);
+        $nom = htmlspecialchars($_POST["nom"]);
+        $date_de_naissance = htmlspecialchars($_POST["date_de_naissance"]);
+        $lieu_de_naissance = htmlspecialchars($_POST["lieu_de_naissance"]);
+        $adresse = htmlspecialchars($_POST["adresse"]);
+        $niveau = htmlspecialchars($_POST["niveau"]);
+
+        //On écrit la requete
+        $sql = 'INSERT INTO eleves (prenom, nom, date_de_naissance, lieu_de_naissance, adresse, niveau)
+        VALUES (:prenom, :nom, :date_de_naissance, :lieu_de_naissance, :adresse, :niveau)';
+
+        //On prepare la requete
+        $query = $bdd->prepare($sql);
+
+        //On injecte les valeurs
+        $query->bindParam(':prenom', $prenom);
+        $query->bindParam(':nom', $nom);
+        $query->bindParam(':date_de_naissance', $date_de_naissance);
+        $query->bindParam(':lieu_de_naissance', $lieu_de_naissance);
+        $query->bindParam(':adresse', $adresse);
+        $query->bindParam(':niveau', $niveau);
+
+        //On execute la requete
+        $query->execute();
+    }
 
 ?>
 
@@ -34,7 +65,7 @@
                 </div>
                 <div class="form-group">
                     <label for="lieu_de_naissance">Lieu de naissance</label>
-                    <input type="text" name="lieu_de_naissane" class="form-control" placeholder="Lieu de naissance" required="required" autocomplete="off">
+                    <input type="text" name="lieu_de_naissance" class="form-control" placeholder="Lieu de naissance" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="adresse">Adresse</label>
