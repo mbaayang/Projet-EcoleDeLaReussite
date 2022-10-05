@@ -29,6 +29,10 @@ if (isset($_POST["submit"])) {
 
         //On execute la requete
         $query->execute();
+
+        // On redirige avec le message de succès
+        header('Location:inscription.php?reg_err=success');
+        die();
     }
 
 ?>
@@ -48,7 +52,22 @@ if (isset($_POST["submit"])) {
             <title>Inscription</title>
         </head>
         <body>
-        <div class="login-form">            
+        <div class="login-form">     
+            <?php
+            if(isset($_GET['reg_err']))
+            {
+                $err = htmlspecialchars($_GET['reg_err']);
+                if($err = 'success')
+                {
+                    ?>
+                        <div class="alert alert-success">
+                            <strong>Succès</strong> inscription réussie !
+                        </div>
+                    <?php
+
+                }
+            }
+            ?>       
             <form action="" method="post">
                 <h2 class="text-center">Inscription des élèves</h2>   
                 <div class="form-group">
