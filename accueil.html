@@ -1,7 +1,78 @@
-<footer>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecole de la Reussite</title>
+    <!-- CSS only -->
+    <!-- CSS only -->
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="laReussite.css">
+</head>
+<body style="background-color:  #2C22B8;">
+    <header>
+        <nav>
+            <img src="images/logo.png" class="img-logo" alt="logo">
+            <ul>
+                <li> <a href="accueil.html"> ACCUEIL </a></li>
+                <li> <a href="connexion.php"> CONNEXION</a>
+                <li> <a href="#"> ADMISSION </a>
+                    <div class="sousmenu">
+                        <ul>
+                            <li> <a href="admission_primaire.php"> PRIMAIRE</a></li>
+                            <li> <a href="admission_secondaire.php"> SECONDAIRE</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class=""> <a href=""> DEMANDE D'EMPLOI </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">    
+                <div class="bloc">
+                    <img name="slide" >
+                </div>
+                <div class="bloc">
+                    <h3>À propos de nous</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                        Ad corrupti fugit praesentium. Culpa, minima repudiandae quas mollitia autem doloribus similique illum, 
+                        necessitatibus non asperiores rerum, temporibus suscipit dolores! Aliquam, aperiam.
+                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Porro placeat quidem voluptates numquam eius ducimus suscipit nihil, ad optio maxime commodi, 
+                        adipisci amet? Ea sunt debitis dolore facilis dolorem officiis?
+                    </p>
+                </div>
+        </div>
+        <!-- Slider 2 -->
+                <span class="prev" onclick="pres()" >
+                    <a   >&#10094;</a>
+                </span>
+                <span class="div_slider">
+                    <img src="images/s10.png" alt="" class="slider">
+                    <img src="images/s9.jpeg" alt="" class="slider">
+                    <img src="images/s3.jpeg" alt="" class="slider">
+                    <img src="images/s3.jpg" alt="" class="slider">
+                    <img src="images/s4.jpg" alt="" class="slider">
+                    <img src="images/s5.jpg" alt="" class="slider">
+                    <img src="images/s6.jpg" alt="" class="slider">
+                    <img src="images/s7.jpeg" alt="" class="slider">
+                    <img src="images/s8.jpeg" alt="" class="slider">
+                    <img src="images/s0.jpeg" alt="" class="slider">
+                </span>
+                <span class="next" onclick="animation2()" >
+                    <a  >&#10095;</a>
+                </span> 
+                    
+        
+    </main>
+    <footer>
         <div class="infos">
             <div class="contact">
-                <h3>Contacts</h3>
+                <h4>Contacts</h4>
                 <p>Adresse: Mermoz Dakar Rue 0000</p>
                 <p>Tel: 33 888 00 00</p>
                 <p>Email: ecolelareussite@gmail.com</p>
@@ -15,3 +86,6 @@
         </div>
         <p class="end">Copyright Septembre 2022</p>
     </footer>
+    <script src="laReussite.js"></script>
+</body>
+</html>
