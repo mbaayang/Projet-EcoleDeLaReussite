@@ -1,5 +1,28 @@
 <?php
  include ('connect.php'); // On inclu la connexion à la bdd
+
+   // Vérifier si le formulaire est soumis 
+   if ( isset( $_POST['submit'] ) ) {
+    /* récupérer les données du formulaire en utilisant 
+       la valeur des attributs name comme clé 
+      */
+   
+    $prenom = $_POST['prenom']; 
+    $nom = $_POST['nom']; 
+    $naissance=$_POST['naissance'];
+    $lieu=$_POST['lieu'];
+    $adresse=$_POST['adresse'];
+    $niveau=$_POST['niveau'];
+  /*   $pseudo=$_POST['pseudo']; */
+/*     $email=$_POST['email']; */
+  /*   $mot_de_passe=$_POST['mot_de_passe']; */
+ /*    $statut=$_POST['statut']; */
+    
+require_once'connect.php';
+$var=$bdd->query("INSERT INTO employes(prenom,nom, date_de_naissance, lieu_de_naissance, adresse, tel,,email,,statut) VALUES ('".$prenom."','".$nom."','".$naissance."','".$lieu."','".$adresse."','".$tel."','".$email."','".$statut."')");
+
+ }
+?>
 ?>
 
 <!DOCTYPE html>
