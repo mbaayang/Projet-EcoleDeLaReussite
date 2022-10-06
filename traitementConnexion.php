@@ -29,7 +29,7 @@
                 {
                     // On créer la session et on redirige sur espace_employes.php
                     $_SESSION['user'] = $data['token'];
-                    header('Location: espace_employes.php');
+                    header('Location: pageProf.php');
                     die();
                 }else{ header('Location: connexion.php?login_err=password'); die(); }
             }else{ header('Location: connexion.php?login_err=email'); die(); }

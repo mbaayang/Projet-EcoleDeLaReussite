@@ -1,5 +1,5 @@
 <?php
-require_once'connect.php';
+require_once('connect.php');
 if(isset($_GET['id'])){
  $id=$_GET['id'];
  $req=$bdd->prepare("UPDATE eleves SET archiver=1 WHERE id=?");//code pour archiver en changeant la valeur 0 par 1
@@ -8,6 +8,4 @@ if(isset($_GET['id'])){
     echo "suppresion effectuée";
  }
 }
-
-
 ?>

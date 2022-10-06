@@ -17,8 +17,8 @@
                                 ADMISSION
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="admission_primaire.php">PRIMAIRE</a></li>
-                                <li><a class="dropdown-item" href="admission_secondaire.php">SECONDAIRE</a></li>
+                                <li><a class="dropdown-item" href="admissionPrimaire.php">PRIMAIRE</a></li>
+                                <li><a class="dropdown-item" href="admissionSecondaire.php">SECONDAIRE</a></li>
                             </ul>
                         </li>
                     </ul>

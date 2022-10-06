@@ -42,11 +42,11 @@
                                 'token' => bin2hex(openssl_random_pseudo_bytes(64))
                             ));
                             // On redirige avec le message de succès
-                            header('Location:inscription_employes.php?reg_err=success');
+                            header('Location:inscriptionEmployes.php?reg_err=success');
                             die();
-                        }else{ header('Location: inscription_employes.php?reg_err=password'); die();}
-                    }else{ header('Location: inscription_employes.php?reg_err=email'); die();}
-                }else{ header('Location: inscription_employes.php?reg_err=email_length'); die();}
-            }else{ header('Location: inscription_employes.php?reg_err=pseudo_length'); die();}
-        }else{ header('Location: inscription_employes.php?reg_err=already'); die();}
+                        }else{ header('Location: inscriptionEmployes.php?reg_err=password'); die();}
+                    }else{ header('Location: inscriptionEmployes.php?reg_err=email'); die();}
+                }else{ header('Location: inscriptionEmployes.php?reg_err=email_length'); die();}
+            }else{ header('Location: inscriptionEmployes.php?reg_err=pseudo_length'); die();}
+        }else{ header('Location: inscriptionEmployes.php?reg_err=already'); die();}
     }
