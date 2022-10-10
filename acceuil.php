@@ -69,6 +69,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
     
         .col-4 {
@@ -76,6 +77,7 @@
             border-radius: 5px;
             height: 400px;
             margin: 10px;
+            margin-top: 40px;
         }
     
         .col-8 img {
@@ -83,6 +85,7 @@
             width: 650px;
             border-radius: 5px;
             margin: 10px;
+            margin-top: 40px;
         }
     
         .col-4 h3,
