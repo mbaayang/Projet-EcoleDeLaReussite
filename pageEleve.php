@@ -37,6 +37,7 @@ include('connect.php');
     $stmt->execute();
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
+      $statut=$row['statut'];
       $id=$row['id'];
       $pseudo=$row['pseudo'];
       $nom=$row['nom'];
@@ -48,6 +49,10 @@ include('connect.php');
       $niveau=$row['niveau'];
       $archiver=$row['archiver'];
       if ($archiver==0) {
+        if($statut=='directeur')
+     {
+
+        
         echo '<tr>
         <th scope="row">'.$id.'</th>
         <td>'.$pseudo.'</td>
@@ -64,6 +69,21 @@ include('connect.php');
         </td>
     
       </tr>';
+    }elseif($statut=='professeur'){
+           
+      echo '<tr>
+      <th scope="row">'.$id.'</th>
+      <td>'.$pseudo.'</td>
+      <td>'.$nom.'</td>
+      <td>'.$prenom.'</td>
+      <td>'.$dateNaissance.'</td>
+      <td>'.$lieuNaissance.'</td>
+      <td>'.$sexe.'</td>
+      <td>'.$tel.'</td>
+      <td>'.$niveau.'</td>
+      <td><button class="btn btn-primary my-1"><a href="updateEleve.php?updateid='.$id.'" class="text-light">Modifier</a></button></td>
+      </tr>';
+    }
   
       }
     }

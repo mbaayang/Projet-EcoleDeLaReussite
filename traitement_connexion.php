@@ -11,15 +11,27 @@ error_reporting(E_ALL);
      /*    $statut=  htmlspecialchars($_POST['statut']); */
         
         $email = strtolower($email); // email transformé en minuscule
-        
         // On regarde si l'utilisateur est inscrit dans la table employes
-        $check = $bdd->prepare('SELECT email, passwords FROM personnes WHERE email =? AND passwords= "12345678"');
-        $check->execute(array($email));
+        
+        $check = $bdd->prepare('SELECT email, passwords, statut FROM personnes WHERE email =:email AND passwords=:passwords');
+        $check->bindParam(":email", $email);
+        $check->bindParam(":passwords", $password);
+        // $check->bindParam(":statut", $statut);
+        $check->execute();
+        
+        // var_dump($email,$password);die;
+
         $data = $check->fetch();
         $row = $check->rowCount();
         
-       
+//         while ($a = $check->fetch()) {
+//             # code...
+//             var_dump($a);die;
+//         }
 
+//         die;
+       
+// var_dump($row);die;
         // Si > à 0 alors l'utilisateur existe
         if($row > 0)
         {
@@ -31,16 +43,27 @@ error_reporting(E_ALL);
                 if($password == $data["passwords"])
                 {
                     // On créer la session et on redirige sur espace_employes.php
+                    // var_dump($data);
                     $_SESSION['user'] = $data['token'];
-                    header('Location: espace_employes.php');
-                    die();
+                    if($data['statut'] =='admin'){
+                        header('Location: espace_directeur.php');
+                        die();
+                    }elseif($data['statut'] =='professeur'){
+                        header('Location: espace_prof.php');
+                        die();
+                    }elseif($data['statut'] =='surveillant'){
+                        header('Location: espace_surveillant.php');
+                        die();
+                    }else{
+                        header('Location: espace_comptable.php');
+                        die();
+                    }
                  }     
             
                 else{ header('Location: connexion.php?login_err=passwords'); die(); }
             }else{ header('Location: connexion.php?login_err=email'); die(); }
         }else{ header('Location: connexion.php?login_err=already'); die(); }
     }else{ header('Location: connexion.php'); die();} // si le formulaire est envoyé sans aucune données
-
 
 
     ?>

@@ -18,7 +18,7 @@
            <div id="class2"><i class="fa-solid fa-burger" id="class1"></i>&nbsp;<a href="inscription.php"><span >ajouter employes</span></a></div>&nbsp;
           <div id="class2"><i class="fa-solid fa-ear-deaf"></i>&nbsp;<a href="afficher.php"><span>lister employes</span> </a></div> &nbsp;
            <div id="class2"><i class="fa-solid fa-anchor"></i>&nbsp;<a href="pageEleve.php"><span>ajouter eleves</span></a></div> &nbsp;
-          <div id="class2"><a href="affichereleve.php">lister eleves</a></div> 
+<!--           <div id="class2"><a href="affichereleve.php">lister eleves</a></div>  -->
         </div>
 
         
