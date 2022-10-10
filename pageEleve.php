@@ -26,7 +26,6 @@ include('connect.php');
       <th scope="col">DateNaissance</th>
       <th scope="col">LieuNaissance</th>
       <th scope="col">Sexe</th>
-  
       <th scope="col">Tel</th>
       <th scope="col">Niveau</th>
       <th scope="col">Actions</th>
@@ -34,7 +33,7 @@ include('connect.php');
   </thead>
   <tbody>
     <?php
-    $stmt=$bdd->prepare("SELECT * FROM personnes ");
+    $stmt=$bdd->prepare("SELECT * FROM personnes where statut='eleve' ");
     $stmt->execute();
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -44,14 +43,12 @@ include('connect.php');
       $prenom=$row['prenom'];
       $dateNaissance=$row['dateNaissance'];
       $lieuNaissance=$row['lieuNaissance'];
-      $statut=$row['statut'];
-      $passwords=$row['passwords'];
       $sexe=$row['sexe'];
-      $email=$row['email'];
+      $statut=$row['statut'];
       $tel=$row['tel'];
       $niveau=$row['niveau'];
       $archiver=$row['archiver'];
-      if ($archiver==0 AND $statut=='eleve') {
+      if ($archiver==0) {
         echo '<tr>
         <th scope="row">'.$id.'</th>
         <td>'.$pseudo.'</td>
@@ -59,10 +56,7 @@ include('connect.php');
         <td>'.$prenom.'</td>
         <td>'.$dateNaissance.'</td>
         <td>'.$lieuNaissance.'</td>
-        <td>'.$statut.'</td>
-        <td>'.$passwords.'</td>
         <td>'.$sexe.'</td>
-        <td>'.$email.'</td>
         <td>'.$tel.'</td>
         <td>'.$niveau.'</td>
         <td>

@@ -10,11 +10,11 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
     $lieuNaissance=$_POST['lieuNaissance'];	
   
     $sexe=$_POST['sexe'];	
-	
+	$statut=$_POST['statut'];
 	$tel=$_POST['tel'];	
 	$niveau=$_POST['niveau'];	
 
-    $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,dateNaissance,lieuNaissance,statut,sexe,tel,niveau) VALUES ('$pseudo','$nom','$prenom','$dateNaissance','$lieuNaissance','$statut','$sexe','$email','$tel','$niveau')");
+    $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,dateNaissance,lieuNaissance,statut,sexe,tel,niveau) VALUES ('$pseudo','$nom','$prenom','$dateNaissance','$lieuNaissance','$statut','$sexe','$tel','$niveau')");
     $stmtAjoutPersonne->execute();
     if($stmtAjoutPersonne){
         header('location:pageEleve.php');
