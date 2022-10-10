@@ -5,7 +5,7 @@
                 <div class="space-between navbar-space-between" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="accueil.html"><i class="fa-solid fa-house"></i> ACCUEIL</a>
+                            <a class="nav-link active" aria-current="page" href="acceuil.php"><i class="fa-solid fa-house"></i> ACCUEIL</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="connexion.php"><i class="fa-solid fa-user"></i> CONNEXION</a>

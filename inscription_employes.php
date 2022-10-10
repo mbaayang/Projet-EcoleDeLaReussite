@@ -14,6 +14,37 @@
         <?php
         include('header.php');
         ?>
+
+<?php
+
+require_once 'connect.php';
+
+// Vérifier si le formulaire est soumis 
+if ( isset( $_POST['submit'] ) ) {
+
+ /* récupérer les données du formulaire en utilisant 
+    la valeur des attributs name comme clé 
+   */
+  $pseudo=$_POST['pseudo'];
+ /*  $nom = $_POST['nom']; 
+ $prenom = $_POST['prenom']; 
+ $statut=$_POST['statut']; */
+ $email=$_POST['email'];
+ $passwords=$_POST['passwords'];
+/*  $sexe=$_POST['sexe']; */
+ 
+/*  $tel=$_POST['tel']; */
+ 
+
+
+
+$var=$bdd->query("INSERT INTO personnes(pseudo,email,passwords,) VALUES('".$pseudo."','".$email."','".$passwords."')");
+
+}
+?>
+
+
+
         <div class="login-form">
             <?php 
                 if(isset($_GET['reg_err']))
@@ -30,7 +61,7 @@
                         <?php
                         break;
 
-                        case 'password':
+                        case 'passwords':
                         ?>
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> mot de passe différent
@@ -77,18 +108,36 @@
                     <label for="pseudo">Pseudo</label>
                     <input type="text" name="pseudo" class="form-control" placeholder="Pseudo" required="required" autocomplete="off">
                 </div>
+                
                 <div class="form-group">
                     <label for="email">Adresse mail</label>
                     <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
                 </div>
+
+              <!--   <div class="form-group">
+                    <label for="email">TEL</label>
+                    <input type="name" name="TEL" class="form-control" placeholder="tel" required="required" autocomplete="off">
+                </div> -->
+
+           <!--      <div class="form-group">
+                <label for="passwords">statut</label><br>
+                <input type="name" name="statut" class="form-control" placeholder="statut" required="required" autocomplete="off">
+            </div>  -->
+
+            <!-- div class="form-group">
+                    <label for="passwords_retype">Sexe</label>
+                    <input type="name" name="passwords_retype" class="form-control" placeholder="sexe" required="required" autocomplete="off">
+                </div> -->
+
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
+                    <input type="passwords" name="passwords" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="password_retype">Saisissez à nouveau le mot de passe</label>
-                    <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off">
+                    <label for="passwords_retype">Saisissez à nouveau le mot de passe</label>
+                    <input type="passwords" name="passwords_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off">
                 </div>
+    
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Inscription</button>
                 </div>   
