@@ -20,7 +20,7 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
     if($stmtAjoutPersonne){
         header('location:pageEleve.php');
     }else { die('Erreur : '.$e->getMessage());}
-}else {echo "Veuiller modifier les champs concernés";}
+}
 
 ?>
 
@@ -31,10 +31,18 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="laReussite.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
+
     <title>Ajout élève</title>
   </head>
   <body>
-    <div class="container my-5 ">
+  <?php
+    include('header.php');
+    ?>
+    <div class="container my-5 w-50">
     <form method="POST" action="">
         <div class="mb-3">
             <label >Pseudo</label>
@@ -74,5 +82,8 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
   <button type="submit" class="btn btn-primary btn-block"name="submit">Modifier</button>
 </form>
     </div>
+    <?php
+    include('footer.php');
+    ?>
   </body>
 </html>

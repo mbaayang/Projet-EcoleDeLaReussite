@@ -3,7 +3,7 @@ include('connect.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,14 +14,12 @@ include('connect.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
 
-    <title>Page employes</title>
+    <title>Page Elève</title>
 </head>
-
 <body>
-<h1>Liste des Employes de l'école</h1>
-    <div class="container">
-        <button class="btn btn-primary mt-5"><a href="addEmployes.php" class="text-light">Ajouter</a></button>
-    </div>
+    <?php
+    include('header.php');
+    ?>
     <table class="table">
   <thead>
     <tr> 
@@ -29,13 +27,11 @@ include('connect.php');
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
-      <th scope="col">statut</th>
-      <th scope="col">Passwords</th>
+      <th scope="col">DateNaissance</th>
+      <th scope="col">LieuNaissance</th>
       <th scope="col">Sexe</th>
-      <th scope="col">Email</th>
       <th scope="col">Tel</th>
-      <th scope="col">Salaire</th>
-      <th scope="col">Actions</th>
+      <th scope="col">Niveau</th>
     </tr>
   </thead>
   <tbody>
@@ -44,34 +40,29 @@ include('connect.php');
     $stmt->execute();
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
-      $archiver=$row['archiver'];
-      $statut=$row['statut'];
+      $id=$row['id'];
       $pseudo=$row['pseudo'];
       $nom=$row['nom'];
       $prenom=$row['prenom'];
-      $passwords=$row['passwords'];
+      $dateNaissance=$row['dateNaissance'];
+      $lieuNaissance=$row['lieuNaissance'];
       $sexe=$row['sexe'];
-      $email=$row['email'];
       $tel=$row['tel'];
-      $salaire=$row['salaire'];
-      $id=$row['id'];
-
-      if ($archiver==0 AND $statut!='Elève') {
+      $niveau=$row['niveau'];
+      $archiver=$row['archiver'];
+      $statut=$row['statut'];
+      if ($archiver==0 AND $statut=='Elève') {
         echo '<tr>
         <th scope="row">'.$id.'</th>
         <td>'.$pseudo.'</td>
         <td>'.$nom.'</td>
         <td>'.$prenom.'</td>
-        <td>'.$statut.'</td>
-        <td>'.$passwords.'</td>
+        <td>'.$dateNaissance.'</td>
+        <td>'.$lieuNaissance.'</td>
         <td>'.$sexe.'</td>
-        <td>'.$email.'</td>
         <td>'.$tel.'</td>
-        <td>'.$salaire.'</td>
-        <td>
-        <button class="btn btn-primary my-1"><a href="updateEmployes.php?updateid='.$id.'" class="text-light">Modifier</a></button>
-        <button class="btn btn-danger my-1"><a href="deleteEmployes.php?deleteid='.$id.'" class="text-light">Supprimer</a></button>
-        </td>
+        <td>'.$niveau.'</td>
+
     
       </tr>';
   
@@ -81,5 +72,8 @@ include('connect.php');
     ?>
   </tbody>
 </table>
+<?php
+    include('footer.php');
+    ?>
 </body>
 </html>

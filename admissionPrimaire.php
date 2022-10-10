@@ -15,15 +15,27 @@
     include('header.php');
     ?>
     <main>
-<p>L’école de la reussite se situe au centre de Dakar dans le quartier Kermel au plateau, dans un batiment neuf et moderne.
+        <div class="admission" >
+            L’école de la reussite se situe au centre de Dakar dans le quartier Kermel au plateau, dans un batiment neuf et moderne.
 
 Elle accueille les élèves des cycles élémentaire (CP au CM2) et maternelle (TPS à GS).
 
-A l’enseignement d’excellence que propose l’école Aimé Césaire s’ajoute une dimension internationale, à travers son programme bilingue dispensé selon les méthodes, programmes et instructions pédagogiques en usage en France.</p>
+A l’enseignement d’excellence que propose l’école Aimé Césaire s’ajoute une dimension internationale, à travers son programme bilingue dispensé selon les méthodes, programmes et instructions pédagogiques en usage en France.
+
+        </div>
+
     </main>
     <?php
-    include('footer.php')
+    include('footer.php');
     ?>
+
+    <style>
+        .admission{
+    width: 500px;
+    margin-left: 30%;
+    margin-top: 20px;
+}
+    </style>
     <script src="laReussite.js"></script>
 </body>
 </html>
