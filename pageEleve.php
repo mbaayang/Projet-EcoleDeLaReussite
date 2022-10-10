@@ -25,10 +25,7 @@ include('connect.php');
       <th scope="col">Prenom</th>
       <th scope="col">DateNaissance</th>
       <th scope="col">LieuNaissance</th>
-      <th scope="col">Statut</th>
-      <th scope="col">Passwords</th>
       <th scope="col">Sexe</th>
-      <th scope="col">Email</th>
       <th scope="col">Tel</th>
       <th scope="col">Niveau</th>
       <th scope="col">Actions</th>
@@ -46,10 +43,7 @@ include('connect.php');
       $prenom=$row['prenom'];
       $dateNaissance=$row['dateNaissance'];
       $lieuNaissance=$row['lieuNaissance'];
-      $statut=$row['statut'];
-      $passwords=$row['passwords'];
       $sexe=$row['sexe'];
-      $email=$row['email'];
       $tel=$row['tel'];
       $niveau=$row['niveau'];
       $archiver=$row['archiver'];
@@ -61,10 +55,7 @@ include('connect.php');
         <td>'.$prenom.'</td>
         <td>'.$dateNaissance.'</td>
         <td>'.$lieuNaissance.'</td>
-        <td>'.$statut.'</td>
-        <td>'.$passwords.'</td>
         <td>'.$sexe.'</td>
-        <td>'.$email.'</td>
         <td>'.$tel.'</td>
         <td>'.$niveau.'</td>
         <td>
