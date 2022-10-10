@@ -57,14 +57,7 @@ include('header.php');
 
         $stmtAjoutEleve->bindParam(':niveau',$niveau);
         $stmtAjoutEleve->execute();
-//alerte Ajout fait
-header("location: inscription_Eleve.php?success=eleve inscris avec succés");
-exit;
 
-    }
-    if (isset($_GET["success"])) {
-        echo $_GET["success"];
-    }
 ?>
 <div id="content_autre border border-primary">
         <div class="d-flex justify-content-center " >
@@ -99,7 +92,7 @@ exit;
                     <input type="text" name="niveau" class="form-control" placeholder="Niveau de l'éléve" required="required" autocomplete="off">
                 </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Inscription</button>
+                <button type="submit" class="btn btn-primary btn-block" name="envoyer">Inscription</button>
                 </div>  
             </form>
         </div>
