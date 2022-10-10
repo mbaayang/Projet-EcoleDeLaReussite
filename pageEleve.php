@@ -26,6 +26,7 @@ include('connect.php');
       <th scope="col">DateNaissance</th>
       <th scope="col">LieuNaissance</th>
       <th scope="col">Sexe</th>
+  
       <th scope="col">Tel</th>
       <th scope="col">Niveau</th>
       <th scope="col">Actions</th>
@@ -33,26 +34,24 @@ include('connect.php');
   </thead>
   <tbody>
     <?php
-    $stmt=$bdd->prepare("SELECT * FROM personnes");
+    $stmt=$bdd->prepare("SELECT * FROM personnes ");
     $stmt->execute();
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
-      $statut=$row['statut'];
       $id=$row['id'];
       $pseudo=$row['pseudo'];
       $nom=$row['nom'];
       $prenom=$row['prenom'];
       $dateNaissance=$row['dateNaissance'];
       $lieuNaissance=$row['lieuNaissance'];
+      $statut=$row['statut'];
+      $passwords=$row['passwords'];
       $sexe=$row['sexe'];
+      $email=$row['email'];
       $tel=$row['tel'];
       $niveau=$row['niveau'];
       $archiver=$row['archiver'];
-      if ($archiver==0) {
-        if($statut=='directeur')
-     {
-
-        
+      if ($archiver==0 AND $statut=='eleve') {
         echo '<tr>
         <th scope="row">'.$id.'</th>
         <td>'.$pseudo.'</td>
@@ -60,7 +59,10 @@ include('connect.php');
         <td>'.$prenom.'</td>
         <td>'.$dateNaissance.'</td>
         <td>'.$lieuNaissance.'</td>
+        <td>'.$statut.'</td>
+        <td>'.$passwords.'</td>
         <td>'.$sexe.'</td>
+        <td>'.$email.'</td>
         <td>'.$tel.'</td>
         <td>'.$niveau.'</td>
         <td>
@@ -69,21 +71,6 @@ include('connect.php');
         </td>
     
       </tr>';
-    }elseif($statut=='professeur'){
-           
-      echo '<tr>
-      <th scope="row">'.$id.'</th>
-      <td>'.$pseudo.'</td>
-      <td>'.$nom.'</td>
-      <td>'.$prenom.'</td>
-      <td>'.$dateNaissance.'</td>
-      <td>'.$lieuNaissance.'</td>
-      <td>'.$sexe.'</td>
-      <td>'.$tel.'</td>
-      <td>'.$niveau.'</td>
-      <td><button class="btn btn-primary my-1"><a href="updateEleve.php?updateid='.$id.'" class="text-light">Modifier</a></button></td>
-      </tr>';
-    }
   
       }
     }
