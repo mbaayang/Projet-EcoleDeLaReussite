@@ -22,7 +22,7 @@
 
                 switch($err)
                 {
-                    case 'password':
+                    case 'passwords':
                         ?>
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> mot de passe incorrect
@@ -36,13 +36,20 @@
                             </div>
                         <?php
                     break;
-                    case 'already':
+                  /*    case 'statut':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> statut incorrect
+                            </div>
+                        <?php
+                    break;  */
+                     case 'already':
                         ?>
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> compte non existant
                             </div>
                         <?php
-                    break;
+                    break; 
                 }
             }
         ?> 
@@ -51,17 +58,22 @@
             <h2 class="text-center">Connexion</h2>       
             <div class="form-group">
                 <label for="email">Adresse mail</label><br>
-                <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
+                <input type="email" name="email" class="form-control" placeholder="Email" required="required" >
             </div>
             <div class="form-group">
-                <label for="password">Mot de passe</label><br>
-                <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
+                <label for="passwords">Mot de passe</label><br>
+                <input type="password" name="passwords" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
             </div>
+
+          <!--   <div class="form-group">
+                <label for="passwords">statut</label><br>
+                <input type="name" name="statut" class="form-control" placeholder="statut" required="required" autocomplete="off">
+            </div>  -->
             <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block">Connexion</button>
                 </div>   
         </form>
-        <p class="text-center"><a href="inscription_employes.php">S'inscrire ?</a></p>
+      
     </div>
         
     <?php

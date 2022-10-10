@@ -108,3 +108,30 @@ footer{
     text-align: center;
 }
 
+
+/*----------------------------formulaire inscription------------------*/
+#bouton{
+    width: 20%;
+    margin-left: 200px;
+    background-color:aqua ;
+    border-radius: 60px;
+    padding: 7px;
+}
+#class1{
+    padding: 10px;
+    border-radius: 10px;
+    }
+
+    #partie0{
+        background-color: gainsboro;
+        width: 100%;
+        height: 30px;
+        display: flex;
+      
+    }
+
+#class2{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+}

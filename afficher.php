@@ -17,20 +17,21 @@
     }
 </style>
 <body>
-    <h4>lister les eleves</h4>
+    <h4>lister les employes</h4>
 
     <table>
 <th>ID</th>
-<th>prenom</th>
 <th>nom</th>
-<th>date_de_naissance</th>
-<th>lieu_de_naissance</th>
-<th>adresse</th>
-<th>niveau</th>
+<th>prenom</th>
+<th>statut</th>
+<th>passwords</th>
+<th>sexe</th>
+<th>email</th>
+<th>tel</th>
 <th>Action</th>
 <?php
 require_once 'connect.php';
-$req=$bdd->query("SELECT * FROM eleves");
+$req=$bdd->query("SELECT * FROM personnes where statut= 'professeur' or statut='surveillant' or statut='comptable'");
 while($aff=$req->fetch()){
    if($aff['archiver']==0){
     
@@ -38,12 +39,13 @@ while($aff=$req->fetch()){
 
 <tr>
 <td> <?php echo $aff['id']?></td>
-<td> <?php echo $aff['prenom']; ?> </td>
-<td>  <?php echo $aff['nom']; ?> </td>
-<td>  <?php echo $aff['date_de_naissance']; ?></td>
-<td>  <?php echo $aff['lieu_de_naissance']; ?></td>
-<td>  <?php echo $aff['adresse']; ?></td>
-<td>  <?php echo $aff['niveau']; ?></td>
+<td> <?php echo $aff['nom']; ?> </td>
+<td>  <?php echo $aff['prenom']; ?> </td>
+<td>  <?php echo $aff['statut']; ?></td>
+<td>  <?php echo $aff['passwords']; ?></td>
+<td>  <?php echo $aff['sexe']; ?></td>
+<td>  <?php echo $aff['email']; ?></td>
+<td>  <?php echo $aff['tel']; ?></td>
 <td>
     <a href="modifier.php?id=<?php echo $aff['id'] ?> ">Modifier</a>
     <a href="supprimer.php?id=<?php echo $aff['id'] ?>">supprimer</a>
