@@ -3,7 +3,7 @@
 
 try 
 {
-    $bdd = new PDO("mysql:host=localhost;dbname=ecole_de_la_reussite_1;charset=utf8", "root", "mbayang07");
+    $bdd = new PDO("mysql:host=localhost;dbname=ecole_de_la_reussite_3;charset=utf8", "root", "mbayang07");
 }
 catch(PDOException $e)
 {

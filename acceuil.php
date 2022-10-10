@@ -8,10 +8,9 @@
     <title>Ecole de la Reussite</title>
     <link rel="stylesheet" href="laReussite.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body style="background-color: #2C22B8;">
@@ -29,8 +28,7 @@
                             <a class="nav-link" href="connexion.php"><i class="fa-solid fa-user"></i> CONNEXION</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-book"></i>
                                 ADMISSION
                             </a>
@@ -69,22 +67,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
-    
         .col-4 {
             background-color: #05006B;
             border-radius: 5px;
             height: 400px;
             margin: 10px;
+            margin-top: 40px;
         }
-    
         .col-8 img {
             height: 400px;
             width: 650px;
             border-radius: 5px;
             margin: 10px;
+            margin-top: 40px;
         }
-    
         .col-4 h3,
         .col-4 p {
             text-align: center;
@@ -112,30 +110,8 @@
         </div>
         <p class="end">Copyright Septembre 2022</p>
     </footer>
-    <script>
-        var imageSlides = ["https://www.socialnetlink.org/wp-content/uploads/2020/06/education-afrique.jpg",
-            "https://us.123rf.com/450wm/twinsterphoto/twinsterphoto1905/twinsterphoto190500022/124612054-gros-plan-sur-des-enfants-afro-am%C3%A9ricains-%C3%A9l%C3%A9mentaires-dessinant-et-peignant-de-mani%C3%A8re-cr%C3%A9ative-ave.jpg?ver=6",
-            "https://us.123rf.com/450wm/rido/rido1804/rido180400009/100140684-portrait-d-%C3%A9colier-afro-am%C3%A9ricain-s-appuyant-sur-le-bureau-avec-des-camarades-de-classe-en-arri%C3%A8re-p.jpg?ver=6",
-            "https://thumbs.dreamstime.com/b/salle-de-classe-de-fille-d-%C3%A9cole-32555776.jpg",
-            "https://thumbs.dreamstime.com/b/%C3%A9colier-primaire-32553695.jpg",
-            "https://us.123rf.com/450wm/stockbroker/stockbroker1709/stockbroker170900440/85280519-deux-enfants-%C3%A9coutant-pendant-une-le%C3%A7on-dans-une-%C3%A9cole-primaire.jpg?ver=6",
-            "https://www.adeanet.org/sites/default/files/ben-white-83tkhlpgg2q-unsplash.jpg"];
-        var time = 3000;
-        var i = 0;
 
-        function changeImg() {
-            document.slide.src = imageSlides[i];
-
-            if (i < imageSlides.length - 1) {
-                i++;
-            } else {
-                i = 0;
-            }
-            setTimeout("changeImg()", time);
-        }
-        //EXecute la fonction lorsque la page se charge
-        window.onload = changeImg;
-    </script>
+    <script src="laReussite.js"></script>
 </body>
 
 </html>
