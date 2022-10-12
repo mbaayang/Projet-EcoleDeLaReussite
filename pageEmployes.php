@@ -3,7 +3,7 @@ include('connect.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +30,6 @@ include('connect.php');
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
       <th scope="col">statut</th>
-      <th scope="col">Passwords</th>
       <th scope="col">Sexe</th>
       <th scope="col">Email</th>
       <th scope="col">Tel</th>
@@ -63,7 +62,6 @@ include('connect.php');
         <td>'.$nom.'</td>
         <td>'.$prenom.'</td>
         <td>'.$statut.'</td>
-        <td>'.$passwords.'</td>
         <td>'.$sexe.'</td>
         <td>'.$email.'</td>
         <td>'.$tel.'</td>

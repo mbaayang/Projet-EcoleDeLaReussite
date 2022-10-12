@@ -3,8 +3,7 @@ var imageSlides = ["https://www.socialnetlink.org/wp-content/uploads/2020/06/edu
         "https://us.123rf.com/450wm/rido/rido1804/rido180400009/100140684-portrait-d-%C3%A9colier-afro-am%C3%A9ricain-s-appuyant-sur-le-bureau-avec-des-camarades-de-classe-en-arri%C3%A8re-p.jpg?ver=6",
         "https://thumbs.dreamstime.com/b/salle-de-classe-de-fille-d-%C3%A9cole-32555776.jpg",
         "https://thumbs.dreamstime.com/b/%C3%A9colier-primaire-32553695.jpg",
-        "https://us.123rf.com/450wm/stockbroker/stockbroker1709/stockbroker170900440/85280519-deux-enfants-%C3%A9coutant-pendant-une-le%C3%A7on-dans-une-%C3%A9cole-primaire.jpg?ver=6",
-        "https://www.adeanet.org/sites/default/files/ben-white-83tkhlpgg2q-unsplash.jpg"];
+        "https://us.123rf.com/450wm/stockbroker/stockbroker1709/stockbroker170900440/85280519-deux-enfants-%C3%A9coutant-pendant-une-le%C3%A7on-dans-une-%C3%A9cole-primaire.jpg?ver=6"];
 var time = 2000;
 var i = 0;
 

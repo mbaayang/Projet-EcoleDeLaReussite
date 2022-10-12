@@ -3,22 +3,23 @@
 include 'connect.php';
 
 if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST['passwords'],$_POST['sexe'],$_POST['tel'],$_POST['salaire'],$_POST['email'])){
-    $pseudo=$_POST['pseudo'];	
-	$nom=$_POST['nom'];	
-    $prenom=$_POST['prenom'];	
-    $sexe=$_POST['sexe'];	
-	$tel=$_POST['tel'];	
-	$statut=$_POST['statut'];	
-    $passwords=$_POST['passwords'];	
-    $email=$_POST['email'];	
-    $salaire=(int)$_POST['salaire'];	
+    $pseudo= htmlspecialchars($_POST['pseudo']);	
+	$nom= htmlspecialchars($_POST['nom']);	
+    $prenom= htmlspecialchars($_POST['prenom']);	
+    $sexe= htmlspecialchars($_POST['sexe']);	
+	$tel= htmlspecialchars($_POST['tel']);	
+	$statut= htmlspecialchars($_POST['statut']);	
+    $passwords= htmlspecialchars($_POST['passwords']);	
+    $email= htmlspecialchars($_POST['email']);	
+    $salaire= htmlspecialchars((int)$_POST['salaire']);	
     
-    
-    $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,statut,passwords,sexe,email,tel,salaire) VALUES ('$pseudo','$nom','$prenom','$statut','$passwords','$sexe','$email','$tel',$salaire)");
-    $stmtAjoutPersonne->execute();
-    if($stmtAjoutPersonne){
-        header('location:pageEmployes.php');
-    }else { die('Erreur : '.$e->getMessage());}
+        $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,statut,passwords,sexe,email,tel,salaire) VALUES ('$pseudo','$nom','$prenom','$statut','$passwords','$sexe','$email','$tel',$salaire)");
+        $stmtAjoutPersonne->execute();
+        if($stmtAjoutPersonne){
+            header('location:pageEmployes.php');
+        }else { die('Erreur : '.$e->getMessage());}
+
+   
 }
 ?>
 
@@ -32,7 +33,6 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST
     <link rel="stylesheet" href="laReussite.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 
     <title>Ajout employes</title>
@@ -63,7 +63,7 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST
 
         <div class="mb-3">
             <label >Password</label>
-            <input type="text" class="form-control" name="passwords" placeholder=" Password" autocomplete="on" >
+            <input type="password" class="form-control" name="passwords" placeholder=" Password" autocomplete="on" >
         </div>
 
         <div class="mb-3">

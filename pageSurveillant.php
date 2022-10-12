@@ -14,15 +14,28 @@
     <?php
     include('header.php');
     ?>
-    <p> bonjour surveillant</p>
-    <a href="pageEleve.php">lister eleves</a>
-    <div class="container">
-    <div class="col-md-12">
-      <div class="text-center">
-        <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>        
-      </div>
-    </div>
-  </div>
+    <header>
+        <h1 class="p-5">Bonjour !</h1>
+        <div class="card" style="width: 18rem; text-align: center;">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="pageEleve.php">Liste des élèves</a></li>
+                <li class="list-group-item"><a href="">Emploi du temps</a></li>
+                <li class="list-group-item"><a href="">Pointage</a></li>
+            </ul>
+        </div>
+        <div style="margin: 25px;">
+            <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+        </div>
+    </header>
+
+    <style>
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>   
     <?php
     include('footer.php');
     ?>
