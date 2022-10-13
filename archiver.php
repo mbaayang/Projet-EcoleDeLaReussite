@@ -24,6 +24,7 @@ include('connect.php');
   <thead>
     <tr> 
       <th scope="col">Identifiant</th>
+      <th scope="col">Matricule</th>
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
@@ -42,6 +43,7 @@ include('connect.php');
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
       $id=$row['id'];
+      $mat=$row['matricule'];
       $pseudo=$row['pseudo'];
       $nom=$row['nom'];
       $prenom=$row['prenom'];
@@ -55,7 +57,8 @@ include('connect.php');
       $date_archiver=$row['dateArchiver'];
       if ($archiver==1 AND $statut=='Elève') {
         echo '<tr>
-        <th scope="row">'.$id.'</th>
+        <th>'.$id.'</th>
+        <td>'.$mat.'</td>
         <td>'.$pseudo.'</td>
         <td>'.$nom.'</td>
         <td>'.$prenom.'</td>
