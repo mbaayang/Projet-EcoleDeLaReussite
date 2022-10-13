@@ -33,7 +33,8 @@ include('connect.php');
     <table class="table">
   <thead>
     <tr> 
-      <th scope="col">Identifiant</th>
+      <th scope="col"> id</th>
+      <th scope="col">matricule</th>
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
@@ -52,6 +53,7 @@ include('connect.php');
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
       $id=$row['id'];
+      $mat=$row['matricule'];
       $pseudo=$row['pseudo'];
       $nom=$row['nom'];
       $prenom=$row['prenom'];
@@ -64,7 +66,8 @@ include('connect.php');
       $statut=$row['statut'];
       if ($archiver==0 AND $statut=='Elève') {
         echo '<tr>
-        <th scope="row">'.$id.'</th>
+        <td>'.$id.'</td>
+        <td>'.$mat.'</td>
         <td>'.$pseudo.'</td>
         <td>'.$nom.'</td>
         <td>'.$prenom.'</td>

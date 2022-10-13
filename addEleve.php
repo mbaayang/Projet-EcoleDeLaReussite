@@ -11,8 +11,17 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
     $sexe=$_POST['sexe'];	
 	$tel=$_POST['tel'];	
 	$niveau=$_POST['niveau'];	
+    $sql= "SELECT matricule from personnes";
+    $mat;
+    $res = $bdd->query($sql);
+    if($res->rowCount()>0){
+        $matricules = $res->fetchAll();
+        $matricule = $matricules[count($matricules) - 1]['matricule'];
+        $increment = (int) explode("/", $matricule)[1]+1;
+        $mat = "FDG_2022/$increment";
+    }
 
-    $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,dateNaissance,lieuNaissance,statut,sexe,tel,niveau) VALUES ('$pseudo','$nom','$prenom','$dateNaissance','$lieuNaissance','Elève','$sexe','$tel','$niveau')");
+    $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,dateNaissance,lieuNaissance,statut,sexe,tel,niveau,matricule) VALUES ('$pseudo','$nom','$prenom','$dateNaissance','$lieuNaissance','Elève','$sexe','$tel','$niveau','$mat')");
     $stmtAjoutPersonne->execute();
     if($stmtAjoutPersonne){
         header('location:pageEleve.php');
