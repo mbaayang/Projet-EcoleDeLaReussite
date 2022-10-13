@@ -14,7 +14,7 @@ include('connect.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
 
-    <title>Page Elève</title>
+    <title>liste des éléves archiver</title>
 </head>
 <body>
     <?php
@@ -24,6 +24,7 @@ include('connect.php');
   <thead>
     <tr> 
       <th scope="col">Identifiant</th>
+      <th scope="col">Matricule</th>
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
@@ -32,15 +33,17 @@ include('connect.php');
       <th scope="col">Sexe</th>
       <th scope="col">Tel</th>
       <th scope="col">Niveau</th>
+      <th scope="col">date_d'archivage</th>
     </tr>
   </thead>
   <tbody>
     <?php
-    $stmt=$bdd->prepare("SELECT * FROM personnes");
+    $stmt=$bdd->prepare('SELECT * FROM personnes where  archiver="1" and statut="Eléve"');
     $stmt->execute();
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
       $id=$row['id'];
+      $mat=$row['matricule'];
       $pseudo=$row['pseudo'];
       $nom=$row['nom'];
       $prenom=$row['prenom'];
@@ -51,9 +54,11 @@ include('connect.php');
       $niveau=$row['niveau'];
       $archiver=$row['archiver'];
       $statut=$row['statut'];
-      if ($archiver==0 AND $statut=='Elève') {
+      $date_archiver=$row['dateArchiver'];
+      if ($archiver==1 AND $statut=='Elève') {
         echo '<tr>
-        <th scope="row">'.$id.'</th>
+        <th>'.$id.'</th>
+        <td>'.$mat.'</td>
         <td>'.$pseudo.'</td>
         <td>'.$nom.'</td>
         <td>'.$prenom.'</td>
@@ -62,6 +67,7 @@ include('connect.php');
         <td>'.$sexe.'</td>
         <td>'.$tel.'</td>
         <td>'.$niveau.'</td>
+        <td>'.$date_archiver.'</td>
 
     
       </tr>';

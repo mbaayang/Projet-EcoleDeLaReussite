@@ -29,6 +29,8 @@ error_reporting(E_ALL);
                 // Si le mot de passe est le bon
                 if($password == $data["passwords"])
                 {
+                    $pass_hash= password_hash($password, PASSWORD_DEFAULT);
+
                     // On créer la session et on redirige 
 
                     $_SESSION['user'] = $data['pseudo'];
