@@ -64,7 +64,7 @@ include('connect.php');
       $email=$row['email'];
       $tel=$row['tel'];
       $salaire=$row['salaire'];
-      $dateins=$row['dateInscription'];
+      $dateins=$row['date_inscription'];
       $mat=$row['matricule'];
       $id=$row['id'];
 

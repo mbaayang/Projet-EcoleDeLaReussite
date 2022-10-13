@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 06 oct. 2022 à 16:56
+-- Généré le : jeu. 13 oct. 2022 à 19:42
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 7.4.29
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `ecole_de_la_reussite`
+-- Base de données : `ecole_de_la_reussite_3`
 --
 
 -- --------------------------------------------------------
@@ -69,21 +69,22 @@ CREATE TABLE `personnes` (
   `niveau` varchar(50) DEFAULT NULL,
   `note` int(20) DEFAULT NULL,
   `salaire` int(50) DEFAULT NULL,
-  `archiver` int(11) DEFAULT 0
+  `date_inscription` date NOT NULL DEFAULT current_timestamp(),
+  `dateArchiver` date NOT NULL,
+  `archiver` int(11) DEFAULT 0,
+  `matricule` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `personnes`
 --
 
-INSERT INTO `personnes` (`id`, `pseudo`, `nom`, `prenom`, `dateNaissance`, `lieuNaissance`, `statut`, `passwords`, `sexe`, `email`, `tel`, `niveau`, `note`, `salaire`, `archiver`) VALUES
-(1, 'ZOUKANA', 'DIALLO', 'Assane', '2022-10-13', 'df', 'k', '12345678', 'M', 'assanediallo192@gmail.com', '4454345', 'BTS', 12, 12000, 1),
-(2, 'ZOUKANA', 'DIALLO', 'Assane', NULL, NULL, 'professeur', '12345678@', 'M', 'assanediallo192@gmail.com', '5566335', NULL, NULL, 12000, 1),
-(3, 'ZOUKANA', 'DIALLO', 'Assane', NULL, NULL, 'professeur', '12345678@', 'M', 'assanediallo192@gmail.com', '5566335', NULL, NULL, 12000, 0),
-(4, 'ZOUKANA', 'DIALLO', 'Assane', NULL, NULL, 'surveillant', '12345678@', 'M', 'assanediallo199@gmail.com', '5566335', NULL, NULL, 12000, 0),
-(5, 'MalickSy', 'sy', 'malick', NULL, NULL, 'proffeseur', '1222', 'M', 'malicksy@gmail.com', '776666666', NULL, NULL, 20000, 0),
-(6, 'Admin', 'DIALLO', 'Assane', NULL, NULL, 'proffeseur', '12345678@', 'M', 'assanediallo192@gmail.com', '5566335', NULL, NULL, 20000, 1),
-(7, 'Aicha', 'fall', 'Mame Aissatou', NULL, NULL, 'comptable', 'Fall60211', 'F', 'yafa@gmail.com', '774118356', NULL, NULL, 12000, 1);
+INSERT INTO `personnes` (`id`, `pseudo`, `nom`, `prenom`, `dateNaissance`, `lieuNaissance`, `statut`, `passwords`, `sexe`, `email`, `tel`, `niveau`, `note`, `salaire`, `date_inscription`, `dateArchiver`, `archiver`, `matricule`) VALUES
+(19, 'zoukana', 'DIALLO', 'Assane', NULL, NULL, 'admin', '12345678@', '', 'assanediallo192@gmail.com', NULL, NULL, NULL, NULL, '2022-10-12', '0000-00-00', 1, ''),
+(21, 'mg', 'gueye', 'mbayang', NULL, NULL, 'professeur', '1234', 'F', 'mbayangueye07@gmail.com', '7777777777', NULL, NULL, 150000, '2022-10-12', '0000-00-00', 0, ''),
+(22, 'fall', 'fall', 'aicha', NULL, NULL, 'surveillant', '0000', 'F', 'yayefallsaliou@gmail.com', '77 000 00 00', NULL, NULL, 50000, '2022-10-12', '0000-00-00', 0, ''),
+(23, 'moz', 'fall', 'modou', NULL, NULL, 'comptable', '2222', 'M', 'modoufall@gmail.com', '77 888 33 22', NULL, NULL, 100000, '2022-10-12', '0000-00-00', 0, ''),
+(25, 'khouz', 'Badiane', 'Khoudia', '2022-09-26', 'dakar', 'Elève', NULL, 'F', NULL, '77 000 00 00', 'CP', NULL, NULL, '2022-10-12', '0000-00-00', 0, '');
 
 -- --------------------------------------------------------
 
@@ -188,7 +189,7 @@ ALTER TABLE `paiement`
 -- AUTO_INCREMENT pour la table `personnes`
 --
 ALTER TABLE `personnes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT pour la table `pointage`

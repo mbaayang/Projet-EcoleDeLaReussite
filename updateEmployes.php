@@ -43,53 +43,60 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST
   <?php
     include('header.php');
     ?>
-    <div class="container my-5 w-50">
-    <form method="POST" action="">
-        <div class="mb-3">
-            <label >Pseudo</label>
-            <input type="text" class="form-control" name="pseudo" placeholder=" Pseudo" autocomplete="on"  >
-        </div>
-        <div class="mb-3">
-            <label >Nom</label>
-            <input type="text" class="form-control" name="nom" placeholder=" Nom" autocomplete="on" >
-        </div>
-        <div class="mb-3">
-            <label >Prenom</label>
-            <input type="text" class="form-control" name="prenom" placeholder=" Prenom" autocomplete="on" >
-        </div>
-
-        <div class="mb-3">
-            <label >Statut</label>
-            <input type="text" class="form-control" name="statut" placeholder=" statut" autocomplete="on" >
-        </div>
-
-        <div class="mb-3">
-            <label >Password</label>
-            <input type="text" class="form-control" name="passwords" placeholder=" Password" autocomplete="on" >
-        </div>
-
-        <div class="mb-3">
-            <label >Sexe</label>
-            <input type="text" class="form-control" name="sexe" placeholder=" Sexe" autocomplete="on" >
-        </div>
-
-        <div class="mb-3">
-            <label >Email</label>
-            <input type="text" class="form-control" name="email" placeholder=" Email" autocomplete="on" >
-        </div>
-        <div class="mb-3">
-            <label >Numéro de téléphone</label>
-            <input type="text" class="form-control" name="tel" placeholder=" tel" autocomplete="on" >
-        </div>
-        <div class="mb-3">
-            <label >Salaire</label>
-            <input type="text" class="form-control" name="salaire" placeholder=" Salaire" autocomplete="on" >
-        </div>
-
-
-  <button type="submit" class="btn btn-primary btn-block" name="submit">Modifier</button>
-</form>
+<div class="container my-5 w-50 bg-light">
+        <form class="row g-3" method="POST" action="addEmployes.php">
+            <div><h2>Modifier</h2></div>
+            <div class="col-md-6">
+                <label for="pseudo" class="form-label">Pseudo</label>
+                <input type="text" class="form-control" name="pseudo" placeholder=" Pseudo" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="sexe" class="form-label">Sexe</label>
+                <select name="sexe" id="sexe" class="form-select">
+                    <option selected>Choisir</option>
+                    <option  value="H">H</option>
+                    <option  value="F">F</option>
+                </select>
+            </div> 
+            <div class="col-md-6">
+                <label for="prenom" class="form-label">Prenom</label>
+                <input type="text" class="form-control" name="prenom" placeholder=" Prenom" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" name="nom" placeholder=" Nom" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Adresse email</label>
+                <input type="email" class="form-control" name="email" placeholder="Adresse email" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="passwords" class="form-label">Password</label>
+                <input type="password" class="form-control" name="passwords" placeholder="Password" autocomplete="off" required>
+            </div>
+            <div class="col-md-6">
+                <label for="tel" class="form-label">Téléphone</label>
+                <input type="text" class="form-control" name="tel" placeholder=" tel" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="salaire" class="form-label">Salaire</label>
+                <input type="name" class="form-control" name="salaire" placeholder="Salaire" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="niveau" class="form-label">Statut</label>
+                <select name="statut" id="statut" class="form-select">
+                <option selected>Choisir</option>
+                <option value="professeur">Professeur</option>
+                <option value="surveillant">Surveillant</option>
+                <option value="comptable">Comptable</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
+            </div>            
+        </form>
     </div>
+
     <?php
     include('footer.php');
     ?>
