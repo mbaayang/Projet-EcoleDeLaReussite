@@ -42,7 +42,7 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
   <?php
     include('header.php');
     ?>
-   <div class="container my-5 w-50 bg-light">
+      <div class="container my-5 w-50 bg-light">
         <form class="row g-3" method="POST" action="addEleve.php">
             <div><h2>Modifier</h2></div>
             <div class="col-md-6">
@@ -53,8 +53,8 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
                 <label for="sexe" class="form-label">Sexe</label>
                 <select name="sexe" id="sexe" class="form-select">
                     <option selected>Choisir</option>
-                    <option value="">H</option>
-                    <option value="">F</option>
+                    <option  value="H">H</option>
+                    <option  value="F">F</option>
                 </select>
             </div>
             <div class="col-md-6">
@@ -79,13 +79,26 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
             </div>
             <div class="col-md-6">
                 <label for="niveau" class="form-label">Niveau</label>
-                <input type="text" class="form-control" name="niveau" placeholder=" Niveau" autocomplete="on" required>
+                <select name="niveau" id="niveau" class="form-select">
+                <option selected>Choisir</option>
+                <option value="CI">CI</option>
+                <option value="CP">CP</option>
+                <option value="CE1">CE1</option>
+                <option value="CE2">CE2</option>
+                <option value="CM1">CM1</option>
+                <option value="CM2">CM2</option>
+                <option value="6e">6e</option>
+                <option value="5e">5e</option>
+                <option value="4e">4e</option>
+                <option value="3e">3e</option>
+                </select>
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
             </div>            
         </form>
     </div>
+
     <?php
     include('footer.php');
     ?>
