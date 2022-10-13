@@ -68,7 +68,7 @@ include('connect.php');
       $niveau=$row['niveau'];
       $archiver=$row['archiver'];
       $statut=$row['statut'];
-      $dateins=$row['dateInscription'];
+      $dateins=$row['date_inscription'];
       if ($archiver==0 AND $statut=='Elève') {
         echo '<tr>
         <td>'.$id.'</td>

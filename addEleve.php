@@ -21,7 +21,8 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
         $mat = "FDG_2022/$increment";
     }
 
-    $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,dateNaissance,lieuNaissance,statut,sexe,tel,niveau,matricule) VALUES ('$pseudo','$nom','$prenom','$dateNaissance','$lieuNaissance','Elève','$sexe','$tel','$niveau','$mat')");
+    $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,dateNaissance,lieuNaissance,statut,sexe,tel,niveau,matricule) 
+    VALUES ('$pseudo','$nom','$prenom','$dateNaissance','$lieuNaissance','Elève','$sexe','$tel','$niveau','$mat')");
     $stmtAjoutPersonne->execute();
     if($stmtAjoutPersonne){
         header('location:pageEleve.php');
