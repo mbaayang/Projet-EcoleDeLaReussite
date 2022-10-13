@@ -14,23 +14,12 @@ include('connect.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
 
-    <title>Page employes</title>
+    <title>liste des employes archiver</title>
 </head>
-
 <body>
-<?php
+    <?php
     include('header.php');
     ?>
-
-
-<div class="text-center">
-    <h2>Liste des employes de l'école</h2>
-  </div>
-<div class="container" style="display:flex; justify-content: space-between;">
-        <button class="btn btn-primary mt-5"><a href="addEmployes.php" class="text-light">Ajouter</a></button>
-        <button class="btn btn-primary mt-5"><a href="archiverEmploye.php" class="text-light">Liste des employes archiver</a></button>
-
-    </div>
     <table class="table">
   <thead>
     <tr> 
@@ -39,54 +28,53 @@ include('connect.php');
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
-      <th scope="col">Statut</th>
+      <th scope="col">email</th>
+      <th scope="col">passwords</th>
       <th scope="col">Sexe</th>
-      <th scope="col">Email</th>
       <th scope="col">Tel</th>
-      <th scope="col">Salaire</th>
-      <th scope="col">Date Inscription</th>
-      <th scope="col">Actions</th>
+      <th scope="col">Statut</th>
+      <th scope="col">salaire</th>
+      <th scope="col">date_d'archivage</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <?php
-    $stmt=$bdd->prepare("SELECT * FROM personnes");
+    $stmt=$bdd->prepare('SELECT * FROM personnes where  archiver="1" and (statut="professeur" or statut="comptable" or statut="surveillant")');
     $stmt->execute();
     
     while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
-      $archiver=$row['archiver'];
-      $statut=$row['statut'];
+      $id=$row['id'];
+      $mat=$row['matricule'];
       $pseudo=$row['pseudo'];
       $nom=$row['nom'];
       $prenom=$row['prenom'];
-      $passwords=$row['passwords'];
       $sexe=$row['sexe'];
-      $email=$row['email'];
       $tel=$row['tel'];
+      $email=$row['email'];
       $salaire=$row['salaire'];
-      $dateins=$row['dateInscription'];
-      $mat=$row['matricule'];
-      $id=$row['id'];
-
-      if ($archiver==0 AND $statut!='Elève') {
+      $archiver=$row['archiver'];
+      $statut=$row['statut'];
+      $passwords=$row['passwords'];
+      $date_archiver=$row['dateArchiver'];
+      if ($archiver==1 AND ($statut=='professeur' OR $statut=='comptable' OR $statut=='surveillant')) {
         echo '<tr>
-        <th >'.$id.'</th>
-        <th >'.$mat.'</th>
+        <th>'.$id.'</th>
+        <td>'.$mat.'</td>
         <td>'.$pseudo.'</td>
         <td>'.$nom.'</td>
         <td>'.$prenom.'</td>
-        <td>'.$statut.'</td>
-        <td>'.$sexe.'</td>
         <td>'.$email.'</td>
+        <td>'.$passwords.'</td>
+        <td>'.$sexe.'</td>
         <td>'.$tel.'</td>
+        <td>'.$statut.'</td>
         <td>'.$salaire.'</td>
-        <th >'.$dateins.'</th>
+        <td>'.$date_archiver.'</td>
         <td>
-        <button class="btn btn-primary my-1"><a href="updateEmployes.php?updateid='.$id.'" class="text-light">Modifier</a></button>
-        <button class="btn btn-danger my-1"><a href="deleteEmployes.php?deleteid='.$id.'" class="text-light">Supprimer</a></button>
+        <button class="btn btn-danger my-1"><a href="restaurerEmploye.php?deleteid='.$id.'" class="text-light">Restaurer</a></button>
         </td>
-    
-      </tr>';
+        </tr>';
   
       }
     }
@@ -94,7 +82,6 @@ include('connect.php');
     ?>
   </tbody>
 </table>
-
 <?php
     include('footer.php');
     ?>

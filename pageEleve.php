@@ -20,11 +20,14 @@ include('connect.php');
 <?php
     include('header.php');
     ?>
-    <h1>Liste des élèves de l'école</h1>
+
+<div class="text-center">
+    <h2>Liste des élèves de l'école</h2>
+  </div>
 
     <div class="container" style="display:flex; justify-content: space-between;">
         <button class="btn btn-primary mt-5"><a href="addEleve.php" class="text-light">Ajouter</a></button>
-        <button class="btn btn-primary mt-5"><a href="archiver.php" class="text-light">liste des eleves archiver</a></button>
+        <button class="btn btn-primary mt-5"><a href="archiver.php" class="text-light">Liste des eleves archiver</a></button>
 
     </div>
 
@@ -33,8 +36,8 @@ include('connect.php');
     <table class="table">
   <thead>
     <tr> 
-      <th scope="col"> id</th>
-      <th scope="col">matricule</th>
+      <th scope="col"> Id</th>
+      <th scope="col">Matricule</th>
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
@@ -43,6 +46,7 @@ include('connect.php');
       <th scope="col">Sexe</th>
       <th scope="col">Tel</th>
       <th scope="col">Niveau</th>
+      <th scope="col">Date_Inscription</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -64,6 +68,7 @@ include('connect.php');
       $niveau=$row['niveau'];
       $archiver=$row['archiver'];
       $statut=$row['statut'];
+      $dateins=$row['dateInscription'];
       if ($archiver==0 AND $statut=='Elève') {
         echo '<tr>
         <td>'.$id.'</td>
@@ -76,6 +81,8 @@ include('connect.php');
         <td>'.$sexe.'</td>
         <td>'.$tel.'</td>
         <td>'.$niveau.'</td>
+        <td>'.$dateins.'</td>
+
         <td>
         <button class="btn btn-primary my-1"><a href="updateEleve.php?updateid='.$id.'" class="text-light">Modifier</a></button>
         <button class="btn btn-danger my-1"><a href="deleteEleve.php?deleteid='.$id.'" class="text-light">Supprimer</a></button>

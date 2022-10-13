@@ -12,8 +12,19 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST
     $passwords= htmlspecialchars($_POST['passwords']);	
     $email= htmlspecialchars($_POST['email']);	
     $salaire= htmlspecialchars((int)$_POST['salaire']);	
+    $sql= "SELECT matricule from personnes";
+    $mat;
+    $res = $bdd->query($sql);
+    if($res->rowCount()>0){
+        $matricules = $res->fetchAll();
+        $matricule = $matricules[count($matricules) - 1]['matricule'];
+        $increment = (int) explode("/", $matricule)[1]+1;
+        $mat = "FDG_2022/$increment";
+    }
+
     
-        $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,statut,passwords,sexe,email,tel,salaire) VALUES ('$pseudo','$nom','$prenom','$statut','$passwords','$sexe','$email','$tel',$salaire)");
+        $stmtAjoutPersonne=$bdd->prepare("INSERT INTO personnes(pseudo,nom,prenom,statut,passwords,sexe,email,tel,salaire,matricule) 
+        VALUES ('$pseudo','$nom','$prenom','$statut','$passwords','$sexe','$email','$tel',$salaire,'$mat')");
         $stmtAjoutPersonne->execute();
         if($stmtAjoutPersonne){
             header('location:pageEmployes.php');
@@ -29,11 +40,11 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="laReussite.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/431fa92df2.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
 
     <title>Ajout employes</title>
   </head>
@@ -41,7 +52,64 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST
   <?php
     include('header.php');
     ?>
-    <div class="container my-5 w-50">
+
+<div class="container my-5 w-50 bg-light">
+        <form class="row g-3" method="POST" action="addEmployes.php">
+            <div><h2>Ajouter un employé</h2></div>
+            <div class="col-md-6">
+                <label for="pseudo" class="form-label">Pseudo</label>
+                <input type="text" class="form-control" name="pseudo" placeholder=" Pseudo" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="sexe" class="form-label">Sexe</label>
+                <select name="sexe" id="sexe" class="form-select">
+                    <option selected>Choisir</option>
+                    <option  value="H">H</option>
+                    <option  value="F">F</option>
+                </select>
+            </div> 
+            <div class="col-md-6">
+                <label for="prenom" class="form-label">Prenom</label>
+                <input type="text" class="form-control" name="prenom" placeholder=" Prenom" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" name="nom" placeholder=" Nom" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="email" class="form-label">Adresse email</label>
+                <input type="email" class="form-control" name="email" placeholder="Adresse email" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="passwords" class="form-label">Password</label>
+                <input type="password" class="form-control" name="passwords" placeholder="Password" autocomplete="off" required>
+            </div>
+            <div class="col-md-6">
+                <label for="tel" class="form-label">Téléphone</label>
+                <input type="text" class="form-control" name="tel" placeholder=" tel" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="salaire" class="form-label">Salaire</label>
+                <input type="name" class="form-control" name="salaire" placeholder="Salaire" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="niveau" class="form-label">Statut</label>
+                <select name="statut" id="statut" class="form-select">
+                <option selected>Choisir</option>
+                <option value="professeur">Professeur</option>
+                <option value="surveillant">Surveillant</option>
+                <option value="comptable">Comptable</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" name="submit">Ajouter</button>
+            </div>            
+        </form>
+    </div>
+
+
+
+    <!-- <div class="container my-5 w-50">
     <form method="POST" action="addEmployes.php">
         <div class="mb-3">
             <label >Pseudo</label>
@@ -87,7 +155,7 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['statut'],$_POST
 
   <button type="submit" class="btn btn-primary btn-block" name="submit">Ajouter</button>
 </form>
-    </div>
+    </div> -->
     <?php
     include('footer.php');
     ?>

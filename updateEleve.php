@@ -42,45 +42,49 @@ if(isset($_POST['pseudo'],$_POST['nom'],$_POST['prenom'],$_POST['dateNaissance']
   <?php
     include('header.php');
     ?>
-    <div class="container my-5 w-50">
-    <form method="POST" action="">
-        <div class="mb-3">
-            <label >Pseudo</label>
-            <input type="text" class="form-control" name="pseudo" placeholder=" pseudo" autocomplete="on" required >
-        </div>
-        <div class="mb-3">
-            <label >Nom</label>
-            <input type="text" class="form-control" name="nom" placeholder=" Nom" autocomplete="on" required>
-        </div>
-        <div class="mb-3">
-            <label >Prenom</label>
-            <input type="text" class="form-control" name="prenom" placeholder=" Prenom" autocomplete="on" required>
-        </div>
-        <div class="mb-3">
-            <label >Date de naissance</label>
-            <input type="Date" class="form-control" name="dateNaissance" placeholder=" date de naissance" autocomplete="on" required>
-        </div>
-
-        <div class="mb-3">
-            <label >Lieu de naissance</label>
-            <input type="text" class="form-control" name="lieuNaissance" placeholder=" lieu de naissance" autocomplete="on" required>
-        </div>
-
-        <div class="mb-3">
-            <label >Sexe</label>
-            <input type="text" class="form-control" name="sexe" placeholder=" Sexe" autocomplete="on" required>
-        </div>
-        <div class="mb-3">
-            <label >Numéro de téléphone du tuteur</label>
-            <input type="text" class="form-control" name="tel" placeholder=" tel" autocomplete="on" required>
-        </div>
-        <div class="mb-3">
-            <label >Niveau</label>
-            <input type="text" class="form-control" name="niveau" placeholder=" Niveau" autocomplete="on" required>
-        </div>
-
-  <button type="submit" class="btn btn-primary btn-block"name="submit">Modifier</button>
-</form>
+   <div class="container my-5 w-50 bg-light">
+        <form class="row g-3" method="POST" action="addEleve.php">
+            <div><h2>Modifier</h2></div>
+            <div class="col-md-6">
+                <label for="pseudo" class="form-label">Pseudo</label>
+                <input type="text" class="form-control" name="pseudo" placeholder=" Pseudo" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="sexe" class="form-label">Sexe</label>
+                <select name="sexe" id="sexe" class="form-select">
+                    <option selected>Choisir</option>
+                    <option value="">H</option>
+                    <option value="">F</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="prenom" class="form-label">Prenom</label>
+                <input type="text" class="form-control" name="prenom" placeholder=" Prenom" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" name="nom" placeholder=" Nom" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="dateNaissance" class="form-label">Date de naissance</label>
+                <input type="date" class="form-control" name="dateNaissance" placeholder=" date de naissance" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="lieuNaissance" class="form-label">Lieu de naissance</label>
+                <input type="text" class="form-control" name="lieuNaissance" placeholder=" lieu de naissance" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="tel" class="form-label">Numéro de téléphone du tuteur</label>
+                <input type="text" class="form-control" name="tel" placeholder=" tel" autocomplete="on" required>
+            </div>
+            <div class="col-md-6">
+                <label for="niveau" class="form-label">Niveau</label>
+                <input type="text" class="form-control" name="niveau" placeholder=" Niveau" autocomplete="on" required>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
+            </div>            
+        </form>
     </div>
     <?php
     include('footer.php');

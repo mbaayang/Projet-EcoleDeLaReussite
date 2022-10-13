@@ -23,7 +23,7 @@ include('connect.php');
     <table class="table">
   <thead>
     <tr> 
-      <th scope="col">Identifiant</th>
+      <th scope="col">Id</th>
       <th scope="col">Matricule</th>
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
@@ -34,6 +34,8 @@ include('connect.php');
       <th scope="col">Tel</th>
       <th scope="col">Niveau</th>
       <th scope="col">date_d'archivage</th>
+      <th scope="col">action</th>
+
     </tr>
   </thead>
   <tbody>
@@ -69,7 +71,9 @@ include('connect.php');
         <td>'.$niveau.'</td>
         <td>'.$date_archiver.'</td>
 
-    
+        <td>
+        <button class="btn btn-danger my-1"><a href="restaurerEleve.php?deleteid='.$id.'" class="text-light">Restaurer</a></button>
+        </td>
       </tr>';
   
       }

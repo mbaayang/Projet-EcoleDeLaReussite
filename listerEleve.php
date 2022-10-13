@@ -20,10 +20,14 @@ include('connect.php');
     <?php
     include('header.php');
     ?>
+<div class="text-center">
+    <h2>Liste des élèves de l'école</h2>
+  </div>
+
     <table class="table">
   <thead>
     <tr> 
-      <th scope="col">Identifiant</th>
+      <th scope="col">Id</th>
       <th scope="col">Pseudo</th>
       <th scope="col">Nom</th>
       <th scope="col">Prenom</th>
