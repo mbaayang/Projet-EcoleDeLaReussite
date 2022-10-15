@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light" >
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="image/logo.png" height='125' width='125' alt="logo"></a>
+                <img src="logo.png" height='125' width='125' alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa-solid fa-list" style="color:blue;"></i>    
             <span class="navbar-toggler-icon" style="color:blue;">MENU</span>
